@@ -3,6 +3,7 @@ import pygame
 from pygame.locals import *
 
 size = iWidth, iHeight = 1280, 720
+iPosBat = iHeight * 0.9
 
 if not pygame.font: print 'Warning!fonts disabled'
 if not pygame.mixer: print 'Warning!sound disabled'
@@ -43,7 +44,7 @@ class Bat(pygame.sprite.Sprite):
 	def update(self):
 		#move the bat based on mouse position
 		pos = pygame.mouse.get_pos()
-		self.rect.center = pos[0], 800
+		self.rect.center = pos[0], iPosBat
 	
 	def bounce(self, target):
 		if self.rect.colliderect(target.rect):
