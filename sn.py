@@ -2,6 +2,8 @@ import os, sys
 import pygame
 from pygame.locals import *
 
+size = iWidth, iHeight = 1280, 720
+
 if not pygame.font: print 'Warning!fonts disabled'
 if not pygame.mixer: print 'Warning!sound disabled'
 
@@ -59,9 +61,9 @@ class Ball(pygame.sprite.Sprite):
 			
 	def random_walk(self):
 		newpos = self.rect.move(self.move)
-		if self.rect.left < 0 or self.rect.right > 1600:
+		if self.rect.left < 0 or self.rect.right > iWidth:
 			self.move[0] = -self.move[0]
-		if self.rect.top < 0 or self.rect.bottom > 900:
+		if self.rect.top < 0 or self.rect.bottom > iHeight:
 			self.move[1] = -self.move[1]
 		newpos = self.rect.move(self.move)
 		self.rect = newpos
@@ -74,7 +76,7 @@ class Ball(pygame.sprite.Sprite):
 def main():
 	#initialise
 	pygame.init()
-	screen = pygame.display.set_mode((1600, 900))
+	screen = pygame.display.set_mode(size)
 	pygame.display.set_caption('Air Hockey')
 	pygame.mouse.set_visible(0)
 	
