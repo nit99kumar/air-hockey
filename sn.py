@@ -55,7 +55,7 @@ class Ball(pygame.sprite.Sprite):
 		pygame.sprite.Sprite.__init__(self)
 		self.image, self.rect = load_image('ball.png', -1)
 		self.rect.topleft = 10, 10
-		self.move = [9,9]
+		self.move = [19,19]
 	
 	def update(self):
 		self.random_walk()
@@ -107,9 +107,9 @@ def main():
 				flag = False
 			elif event.type == KEYDOWN and event.key == K_ESCAPE:
 				flag = False
-			elif event.type == MOUSEBUTTONDOWN: 
-				if bat.bounce(ball):
-					ball.bounce()
+			#elif event.type == MOUSEBUTTONDOWN: 
+			if bat.bounce(ball):
+				ball.bounce()
 			
 		allsprites.update()
 		
